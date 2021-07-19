@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>11111 Redirect</div>
 </template>
 <script lang="ts">
   import { defineComponent, unref } from 'vue';

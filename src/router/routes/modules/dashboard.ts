@@ -12,6 +12,7 @@ const dashboard: AppRouteModule = {
     orderNo: 10,
     icon: 'ion:grid-outline',
     title: t('routes.dashboard.dashboard'),
+    ignoreAuth: true,
   },
   children: [
     {
@@ -21,6 +22,7 @@ const dashboard: AppRouteModule = {
       meta: {
         affix: true,
         title: t('routes.dashboard.analysis'),
+        ignoreAuth: true,
       },
     },
     {
@@ -29,6 +31,7 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/dashboard/workbench/index.vue'),
       meta: {
         title: t('routes.dashboard.workbench'),
+        ignoreAuth: true,
       },
     },
   ],

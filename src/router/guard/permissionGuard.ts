@@ -3,7 +3,7 @@ import type { Router, RouteRecordRaw } from 'vue-router';
 import { usePermissionStoreWithOut } from '/@/store/modules/permission';
 
 import { PageEnum } from '/@/enums/pageEnum';
-import { useUserStoreWithOut } from '/@/store/modules/user';
+// import { useUserStoreWithOut } from '/@/store/modules/user';
 
 import { PAGE_NOT_FOUND_ROUTE } from '/@/router/routes/basic';
 
@@ -12,7 +12,7 @@ const LOGIN_PATH = PageEnum.BASE_LOGIN;
 const whitePathList: PageEnum[] = [LOGIN_PATH];
 
 export function createPermissionGuard(router: Router) {
-  const userStore = useUserStoreWithOut();
+  // const userStore = useUserStoreWithOut();
   const permissionStore = usePermissionStoreWithOut();
   router.beforeEach(async (to, from, next) => {
     // Jump to the 404 page after processing the login
@@ -27,30 +27,29 @@ export function createPermissionGuard(router: Router) {
       return;
     }
 
-    const token = userStore.getToken;
-
+    // const token = userStore.getToken;
     // token does not exist
-    if (!token) {
-      // You can access without permission. You need to set the routing meta.ignoreAuth to true
-      if (to.meta.ignoreAuth) {
-        next();
-        return;
-      }
+    // if (!token) {
+    //   // You can access without permission. You need to set the routing meta.ignoreAuth to true
+    //   if (to.meta.ignoreAuth) {
+    //     next();
+    //     return;
+    //   }
 
-      // redirect login page
-      const redirectData: { path: string; replace: boolean; query?: Recordable<string> } = {
-        path: LOGIN_PATH,
-        replace: true,
-      };
-      if (to.path) {
-        redirectData.query = {
-          ...redirectData.query,
-          redirect: to.path,
-        };
-      }
-      next(redirectData);
-      return;
-    }
+    //   // redirect login page
+    //   const redirectData: { path: string; replace: boolean; query?: Recordable<string> } = {
+    //     path: LOGIN_PATH,
+    //     replace: true,
+    //   };
+    //   if (to.path) {
+    //     redirectData.query = {
+    //       ...redirectData.query,
+    //       redirect: to.path,
+    //     };
+    //   }
+    //   next(redirectData);
+    //   return;
+    // }
 
     if (permissionStore.getIsDynamicAddedRoute) {
       next();

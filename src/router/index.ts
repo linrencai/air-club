@@ -1,15 +1,23 @@
 import type { RouteRecordRaw } from 'vue-router';
 import type { App } from 'vue';
 
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { basicRoutes, LoginRoute } from './routes';
 import { REDIRECT_NAME } from './constant';
-
-const WHITE_NAME_LIST = [LoginRoute.name, REDIRECT_NAME];
-
+// console.log(asyncRoutes);
+const WHITE_NAME_LIST = [
+  LoginRoute.name,
+  REDIRECT_NAME,
+  'Dashboard',
+  'About',
+  'Analysis',
+  'AboutPage',
+  'Workbench',
+];
+console.log(WHITE_NAME_LIST);
 // app router
 export const router = createRouter({
-  history: createWebHashHistory(import.meta.env.VITE_PUBLIC_PATH),
+  history: createWebHistory(import.meta.env.VITE_PUBLIC_PATH),
   routes: basicRoutes as unknown as RouteRecordRaw[],
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 }),
