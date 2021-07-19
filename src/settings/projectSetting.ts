@@ -48,7 +48,7 @@ const setting: ProjectConfig = {
   contentMode: ContentEnum.FULL,
 
   // Whether to display the logo
-  showLogo: true,
+  showLogo: false,
 
   // Whether to show footer
   showFooter: true,
@@ -70,7 +70,7 @@ const setting: ProjectConfig = {
     // Whether to show the document button
     showDoc: false,
     // Whether to show the notification button
-    showNotice: true,
+    showNotice: false,
     // Whether to display the menu search
     showSearch: true,
   },

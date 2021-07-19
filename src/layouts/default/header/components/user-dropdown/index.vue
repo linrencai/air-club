@@ -26,8 +26,21 @@
         />
         <MenuItem
           key="logout"
+          v-if="getUserInfo.realName"
           :text="t('layout.header.dropdownItemLoginOut')"
           icon="ion:power-outline"
+        />
+        <MenuItem
+          key="logout"
+          v-if="!getUserInfo.realName"
+          :text="t('layout.header.dropdownItemLoginIn')"
+          icon="ant-design:login-outlined"
+        />
+        <MenuItem
+          key="logout"
+          v-if="!getUserInfo.realName"
+          :text="t('layout.header.dropdownItemRegister')"
+          icon="akar-icons:circle-plus"
         />
       </Menu>
     </template>
@@ -169,7 +182,7 @@
 
     &-dropdown-overlay {
       .ant-dropdown-menu-item {
-        min-width: 160px;
+        max-width: 160px;
       }
     }
   }
