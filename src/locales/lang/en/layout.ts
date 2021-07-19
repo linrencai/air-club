@@ -6,6 +6,7 @@ export default {
     dropdownItemLoginOut: 'Login Out',
     dropdownItemLoginIn: 'Login In',
     dropdownItemRegister: 'Register',
+    unloginName: 'Login In',
 
     tooltipErrorLog: 'Error log',
     tooltipLock: 'Lock screen',

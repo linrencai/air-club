@@ -5,16 +5,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { basicRoutes, LoginRoute } from './routes';
 import { REDIRECT_NAME } from './constant';
 // console.log(asyncRoutes);
-const WHITE_NAME_LIST = [
-  LoginRoute.name,
-  REDIRECT_NAME,
-  'Dashboard',
-  'About',
-  'Analysis',
-  'AboutPage',
-  'Workbench',
-];
-console.log(WHITE_NAME_LIST);
+const WHITE_NAME_LIST = [LoginRoute.name, REDIRECT_NAME];
 // app router
 export const router = createRouter({
   history: createWebHistory(import.meta.env.VITE_PUBLIC_PATH),

@@ -48,7 +48,7 @@ const setting: ProjectConfig = {
   contentMode: ContentEnum.FULL,
 
   // Whether to display the logo
-  showLogo: false,
+  showLogo: true,
 
   // Whether to show footer
   showFooter: true,

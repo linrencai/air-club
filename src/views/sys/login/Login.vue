@@ -5,7 +5,7 @@
       :showText="false"
       v-if="!sessionTimeout && showLocale"
     />
-    <AppDarkModeToggle class="absolute top-3 right-7 enter-x" v-if="!sessionTimeout" />
+    <!-- <AppDarkModeToggle class="absolute top-3 right-7 enter-x" v-if="!sessionTimeout" /> -->
 
     <span class="-enter-x xl:hidden">
       <AppLogo :alwaysShowTitle="true" />
@@ -16,20 +16,20 @@
         <div class="hidden min-h-full pl-4 mr-4 xl:flex xl:flex-col xl:w-6/12">
           <AppLogo class="-enter-x" />
           <div class="my-auto">
-            <img
+            <!-- <img
               :alt="title"
               src="../../../assets/svg/login-box-bg.svg"
               class="w-1/2 -mt-16 -enter-x"
-            />
-            <div class="mt-10 font-medium text-white -enter-x">
+            /> -->
+            <!-- <div class="mt-10 font-medium text-white -enter-x">
               <span class="inline-block mt-4 text-3xl"> {{ t('sys.login.signInTitle') }}</span>
-            </div>
-            <div class="mt-5 font-normal text-white text-md dark:text-gray-500 -enter-x">
+            </div> -->
+            <!-- <div class="mt-5 font-normal text-white text-md dark:text-gray-500 -enter-x">
               {{ t('sys.login.signInDesc') }}
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="flex w-full h-full py-5 xl:h-auto xl:py-0 xl:my-0 xl:w-6/12">
+        <div class="flex w-full h-full py-5 xl:h-auto xl:py-0 xl:my-0">
           <div
             :class="`${prefixCls}-form`"
             class="
@@ -53,8 +53,8 @@
             <LoginForm />
             <ForgetPasswordForm />
             <RegisterForm />
-            <MobileForm />
-            <QrCodeForm />
+            <!-- <MobileForm /> -->
+            <!-- <QrCodeForm /> -->
           </div>
         </div>
       </div>
@@ -65,12 +65,12 @@
   import { defineComponent, computed } from 'vue';
 
   import { AppLogo } from '/@/components/Application';
-  import { AppLocalePicker, AppDarkModeToggle } from '/@/components/Application';
+  import { AppLocalePicker } from '/@/components/Application';
   import LoginForm from './LoginForm.vue';
   import ForgetPasswordForm from './ForgetPasswordForm.vue';
   import RegisterForm from './RegisterForm.vue';
-  import MobileForm from './MobileForm.vue';
-  import QrCodeForm from './QrCodeForm.vue';
+  // import MobileForm from './MobileForm.vue';
+  // import QrCodeForm from './QrCodeForm.vue';
 
   import { useGlobSetting } from '/@/hooks/setting';
   import { useI18n } from '/@/hooks/web/useI18n';
@@ -84,10 +84,10 @@
       LoginForm,
       ForgetPasswordForm,
       RegisterForm,
-      MobileForm,
-      QrCodeForm,
+      // MobileForm,
+      // QrCodeForm,
       AppLocalePicker,
-      AppDarkModeToggle,
+      // AppDarkModeToggle,
     },
     props: {
       sessionTimeout: {
@@ -146,7 +146,7 @@
     min-height: 100%;
     overflow: hidden;
     @media (max-width: @screen-xl) {
-      background-color: #293146;
+      background-color: #fff;
 
       .@{prefix-cls}-form {
         background-color: #fff;
@@ -160,10 +160,10 @@
       width: 100%;
       height: 100%;
       margin-left: -48%;
-      background-image: url(/@/assets/svg/login-bg.svg);
-      background-position: 100%;
-      background-repeat: no-repeat;
-      background-size: auto 100%;
+      // background-image: url(/@/assets/svg/login-bg.svg);
+      // background-position: 100%;
+      // background-repeat: no-repeat;
+      // background-size: auto 100%;
       content: '';
       @media (max-width: @screen-xl) {
         display: none;

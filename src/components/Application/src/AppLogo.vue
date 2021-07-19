@@ -100,6 +100,7 @@
       font-size: 16px;
       font-weight: 700;
       transition: all 0.5s;
+      color: #1296db !important;
     }
   }
 </style>

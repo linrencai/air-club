@@ -1,10 +1,10 @@
 <template>
   <Dropdown placement="bottomLeft" :overlayClassName="`${prefixCls}-dropdown-overlay`">
     <span :class="[prefixCls, `${prefixCls}--${theme}`]" class="flex">
-      <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" />
+      <img :class="`${prefixCls}__header`" :src="getUserInfo.avatar" v-if="getUserInfo.realName" />
       <span :class="`${prefixCls}__info hidden md:block`">
         <span :class="`${prefixCls}__name  `" class="truncate">
-          {{ getUserInfo.realName }}
+          {{ getUserInfo.realName || t('layout.header.unloginName') }}
         </span>
       </span>
     </span>
@@ -31,16 +31,10 @@
           icon="ion:power-outline"
         />
         <MenuItem
-          key="logout"
+          key="login"
           v-if="!getUserInfo.realName"
           :text="t('layout.header.dropdownItemLoginIn')"
           icon="ant-design:login-outlined"
-        />
-        <MenuItem
-          key="logout"
-          v-if="!getUserInfo.realName"
-          :text="t('layout.header.dropdownItemRegister')"
-          icon="akar-icons:circle-plus"
         />
       </Menu>
     </template>
@@ -67,7 +61,7 @@
 
   import { createAsyncComponent } from '/@/utils/factory/createAsyncComponent';
 
-  type MenuEvent = 'logout' | 'doc' | 'lock';
+  type MenuEvent = 'logout' | 'doc' | 'lock' | 'login' | 'register';
 
   export default defineComponent({
     name: 'UserDropdown',
@@ -107,7 +101,12 @@
       function openDoc() {
         openWindow(DOC_URL);
       }
-
+      // login in
+      function handleLoginIn() {
+        userStore.goLoginIn();
+      }
+      // register account
+      function handleRegister() {}
       function handleMenuClick(e: { key: MenuEvent }) {
         switch (e.key) {
           case 'logout':
@@ -118,6 +117,12 @@
             break;
           case 'lock':
             handleLock();
+            break;
+          case 'login':
+            handleLoginIn();
+            break;
+          case 'register':
+            handleRegister();
             break;
         }
       }

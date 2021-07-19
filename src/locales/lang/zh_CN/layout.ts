@@ -6,6 +6,7 @@ export default {
     dropdownItemLoginOut: '退出',
     dropdownItemLoginIn: '登录',
     dropdownItemRegister: '注册',
+    unloginName: '未登录',
 
     // tooltip
     tooltipErrorLog: '错误日志',

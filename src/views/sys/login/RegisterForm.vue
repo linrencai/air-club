@@ -12,13 +12,13 @@
       <FormItem name="mobile" class="enter-x">
         <Input size="large" v-model:value="formData.mobile" :placeholder="t('sys.login.mobile')" />
       </FormItem>
-      <FormItem name="sms" class="enter-x">
+      <!-- <FormItem name="sms" class="enter-x">
         <CountdownInput
           size="large"
           v-model:value="formData.sms"
           :placeholder="t('sys.login.smsCode')"
         />
-      </FormItem>
+      </FormItem> -->
       <FormItem name="password" class="enter-x">
         <StrengthMeter
           size="large"
@@ -52,7 +52,7 @@
       >
         {{ t('sys.login.registerButton') }}
       </Button>
-      <Button size="large" block class="enter-x mt-4" @click="handleBackLogin">
+      <Button size="large" block class="mt-4 enter-x" @click="handleBackLogin">
         {{ t('sys.login.backSignIn') }}
       </Button>
     </Form>
@@ -64,7 +64,7 @@
   import LoginFormTitle from './LoginFormTitle.vue';
   import { Form, Input, Button, Checkbox } from 'ant-design-vue';
   import { StrengthMeter } from '/@/components/StrengthMeter';
-  import { CountdownInput } from '/@/components/CountDown';
+  // import { CountdownInput } from '/@/components/CountDown';
 
   import { useI18n } from '/@/hooks/web/useI18n';
   import { useLoginState, useFormRules, useFormValid, LoginStateEnum } from './useLogin';
@@ -79,7 +79,7 @@
       InputPassword: Input.Password,
       Checkbox,
       StrengthMeter,
-      CountdownInput,
+      // CountdownInput,
       LoginFormTitle,
     },
     setup() {

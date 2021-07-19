@@ -131,6 +131,10 @@ export const useUserStore = defineStore({
         },
       });
     },
+
+    goLoginIn() {
+      router.push(PageEnum.BASE_LOGIN);
+    },
   },
 });
 
