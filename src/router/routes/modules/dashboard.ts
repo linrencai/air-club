@@ -10,7 +10,7 @@ const dashboard: AppRouteModule = {
   redirect: '/dashboard/analysis',
   meta: {
     orderNo: 10,
-    icon: 'ion:grid-outline',
+    // icon: 'ion:grid-outline',
     title: t('routes.dashboard.dashboard'),
     ignoreAuth: true,
   },
@@ -31,6 +31,15 @@ const dashboard: AppRouteModule = {
       component: () => import('/@/views/dashboard/workbench/index.vue'),
       meta: {
         title: t('routes.dashboard.workbench'),
+        ignoreAuth: true,
+      },
+    },
+    {
+      path: 'mainPage',
+      name: 'mainPage',
+      component: () => import('/@/views/dashboard/mainPage/index.vue'),
+      meta: {
+        title: t('routes.dashboard.mainPage'),
         ignoreAuth: true,
       },
     },
