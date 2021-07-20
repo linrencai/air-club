@@ -3,7 +3,8 @@ export default {
   about: 'About',
   workbench: 'Workbench',
   analysis: 'Analysis',
-  mainPage: 'MainPage',
+  mainPage: 'Home',
+  product: 'product',
   mainpage: {
     newarrival: 'NEW ARRIVAL',
     price: '$',

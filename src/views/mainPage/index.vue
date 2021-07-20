@@ -8,7 +8,6 @@
       {{ t('routes.dashboard.mainpage.newarrival') }}
     </div>
     <Production />
-    <ListingNav class="pt-4" />
   </PageWrapper>
 </template>
 <script lang="ts">
@@ -17,7 +16,6 @@
   import Banner from './components/Banner.vue';
   import { useI18n } from '/@/hooks/web/useI18n';
   import Production from './components/Production.vue';
-  import ListingNav from './components/ListingNav.vue';
 
   export default defineComponent({
     name: 'MainPage',
@@ -25,7 +23,6 @@
       PageWrapper,
       Banner,
       Production,
-      ListingNav,
     },
     setup() {
       const loading = ref(true);

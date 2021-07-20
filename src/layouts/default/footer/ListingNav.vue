@@ -2,9 +2,7 @@
   <PageWrapper :class="prefixCls">
     <div :class="`${prefixCls}__content`">
       <a-list :grid="grid" :data-source="list">
-        <!-- <a-row> -->
         <template #renderItem="{ item }">
-          <!-- <a-col> -->
           <a-list-item>
             <a-card :hoverable="true" :class="`${prefixCls}__card`">
               <div :class="`${prefixCls}__card-img`">
@@ -15,9 +13,7 @@
               </div>
             </a-card>
           </a-list-item>
-          <!-- </a-col> -->
         </template>
-        <!-- </a-row> -->
       </a-list>
     </div>
   </PageWrapper>

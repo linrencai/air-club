@@ -1,11 +1,20 @@
 <template>
   <PageWrapper :class="prefixCls">
+    <template #headerContent>
+      <div class="flex items-center justify-center px-2">
+        <a-input-search
+          v-model:value="value"
+          size="large"
+          :placeholder="t('common.searchPlacehoder')"
+          style="width: 680px; margin: 10px auto 24px auto"
+          :maxlength="50"
+          @search="onSearch"
+        />
+      </div>
+    </template>
     <div>
       <a-list :grid="grid" :data-source="list">
-        <!-- <a-row> -->
         <template #renderItem="{ item }">
-          <!-- <a-col> -->
-
           <a-list-item>
             <a-card :hoverable="true" :class="`${prefixCls}__card`">
               <div :class="`${prefixCls}__card-img`">
@@ -21,13 +30,14 @@
               </div>
             </a-card>
           </a-list-item>
-          <!-- </a-col> -->
         </template>
-        <div :style="{ textAlign: 'center', height: '32px', lineHeight: '32px' }">
-          <a-button @click="loadMoreData">loading more</a-button>
-        </div>
-        <!-- </a-row> -->
       </a-list>
+      <div
+        v-show="list.length"
+        :style="{ textAlign: 'center', height: '32px', lineHeight: '32px' }"
+      >
+        <a-button @click="loadMoreData">{{ t('common.loadMore') }}</a-button>
+      </div>
     </div>
     <Loading :loading="loading" :absolute="absolute" :tip="tip" theme="dark" />
   </PageWrapper>
@@ -118,6 +128,12 @@
         loading: false,
         tip: t('common.loadingText'),
       });
+      const value = ref<string>('');
+
+      const onSearch = (searchValue: string) => {
+        console.log(searchValue);
+        loadMoreData();
+      };
       const grid: any = { gutter: 16, xs: 2, sm: 2, md: 3, lg: 4, xl: 5, xxl: 5 };
 
       function loadMoreData() {
@@ -139,6 +155,8 @@
         grid,
         ...toRefs(compState),
         skonImg,
+        onSearch,
+        value,
       };
     },
   });

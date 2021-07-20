@@ -4,40 +4,40 @@ import { LAYOUT } from '/@/router/constant';
 import { t } from '/@/hooks/web/useI18n';
 
 const dashboard: AppRouteModule = {
-  path: '/dashboard',
-  name: 'Dashboard',
+  path: '/mainPage',
+  name: 'MainPage',
   component: LAYOUT,
-  redirect: '/dashboard/analysis',
+  redirect: '/mainPage/index',
   meta: {
+    hideChildrenInMenu: true,
     orderNo: 10,
-    // icon: 'ion:grid-outline',
-    title: t('routes.dashboard.dashboard'),
+    title: t('routes.dashboard.mainPage'),
     ignoreAuth: true,
   },
   children: [
+    // {
+    //   path: 'analysis',
+    //   name: 'Analysis',
+    //   component: () => import('/@/views/dashboard/analysis/index.vue'),
+    //   meta: {
+    //     affix: true,
+    //     title: t('routes.dashboard.analysis'),
+    //     ignoreAuth: true,
+    //   },
+    // },
+    // {
+    //   path: 'workbench',
+    //   name: 'Workbench',
+    //   component: () => import('/@/views/dashboard/workbench/index.vue'),
+    //   meta: {
+    //     title: t('routes.dashboard.workbench'),
+    //     ignoreAuth: true,
+    //   },
+    // },
     {
-      path: 'analysis',
-      name: 'Analysis',
-      component: () => import('/@/views/dashboard/analysis/index.vue'),
-      meta: {
-        affix: true,
-        title: t('routes.dashboard.analysis'),
-        ignoreAuth: true,
-      },
-    },
-    {
-      path: 'workbench',
-      name: 'Workbench',
-      component: () => import('/@/views/dashboard/workbench/index.vue'),
-      meta: {
-        title: t('routes.dashboard.workbench'),
-        ignoreAuth: true,
-      },
-    },
-    {
-      path: 'mainPage',
-      name: 'mainPage',
-      component: () => import('/@/views/dashboard/mainPage/index.vue'),
+      path: 'index',
+      name: 'MainPage',
+      component: () => import('/@/views/mainPage/index.vue'),
       meta: {
         title: t('routes.dashboard.mainPage'),
         ignoreAuth: true,

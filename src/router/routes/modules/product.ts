@@ -4,24 +4,24 @@ import { LAYOUT } from '/@/router/constant';
 import { t } from '/@/hooks/web/useI18n';
 
 const about: AppRouteModule = {
-  path: '/about',
-  name: 'About',
+  path: '/product',
+  name: 'Product',
   component: LAYOUT,
-  redirect: '/about/index',
+  redirect: '/product/index',
   meta: {
     hideChildrenInMenu: true,
     // icon: 'simple-icons:about-dot-me',
-    title: t('routes.dashboard.about'),
-    orderNo: 100000,
+    title: t('routes.dashboard.product'),
+    orderNo: 20,
     ignoreAuth: true,
   },
   children: [
     {
       path: 'index',
-      name: 'AboutPage',
-      component: () => import('/@/views/sys/about/index.vue'),
+      name: 'ProductPage',
+      component: () => import('/@/views/product/index.vue'),
       meta: {
-        title: t('routes.dashboard.about'),
+        title: t('routes.dashboard.product'),
         // icon: 'simple-icons:about-dot-me',
         ignoreAuth: true,
       },

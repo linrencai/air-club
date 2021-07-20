@@ -17,4 +17,7 @@ export default {
 
   light: '亮色主题',
   dark: '黑暗主题',
+
+  loadMore: '加载更多',
+  searchPlacehoder: '请输入产品名称',
 };

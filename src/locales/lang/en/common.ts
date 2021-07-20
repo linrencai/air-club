@@ -17,4 +17,7 @@ export default {
 
   light: 'Light',
   dark: 'Dark',
+
+  loadMore: 'showMore',
+  searchPlacehoder: 'please enter product name',
 };

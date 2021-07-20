@@ -11,7 +11,7 @@
     @menuEvent="handleMenuEvent"
     overlayClassName="app-locale-picker-overlay"
   >
-    <span class="cursor-pointer flex items-center">
+    <span class="flex items-center cursor-pointer">
       <Icon icon="ion:language" />
       <span v-if="showText" class="ml-1">{{ getLocaleText }}</span>
     </span>
@@ -79,7 +79,7 @@
 <style lang="less">
   .app-locale-picker-overlay {
     .ant-dropdown-menu-item {
-      min-width: 160px;
+      max-width: 160px;
     }
   }
 </style>

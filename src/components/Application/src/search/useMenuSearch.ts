@@ -76,6 +76,7 @@ export function useMenuSearch(refs: Ref<HTMLElement[]>, scrollWrap: Ref<ElRef>, 
         ret.push(...handlerSearchResult(children, reg, item));
       }
     });
+    console.log(ret);
     return ret;
   }
 

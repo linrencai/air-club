@@ -1,23 +1,25 @@
 <template>
-  <Footer :class="prefixCls" v-if="getShowLayoutFooter" ref="footerRef">
-    <div :class="`${prefixCls}__links`">
+  <Footer
+    :class="prefixCls"
+    v-if="getShowLayoutFooter"
+    ref="footerRef"
+    style="padding: 24px 0 0 0; background-color: #fff"
+  >
+    <!-- <div :class="`${prefixCls}__links`">
       <a @click="openWindow(SITE_URL)">{{ t('layout.footer.onlinePreview') }}</a>
 
       <GithubFilled @click="openWindow(GITHUB_URL)" :class="`${prefixCls}__github`" />
 
       <a @click="openWindow(DOC_URL)">{{ t('layout.footer.onlineDocument') }}</a>
-    </div>
-    <div>Copyright &copy;2020 Vben Admin</div>
+    </div> -->
+    <ListingNav />
+    <div class="py-4 bg-black">Copyright &copy;airClub</div>
   </Footer>
 </template>
 
 <script lang="ts">
   import { computed, defineComponent, unref, ref } from 'vue';
   import { Layout } from 'ant-design-vue';
-
-  import { GithubFilled } from '@ant-design/icons-vue';
-
-  import { DOC_URL, GITHUB_URL, SITE_URL } from '/@/settings/siteSetting';
   import { openWindow } from '/@/utils';
 
   import { useI18n } from '/@/hooks/web/useI18n';
@@ -25,10 +27,11 @@
   import { useRouter } from 'vue-router';
   import { useDesign } from '/@/hooks/web/useDesign';
   import { useLayoutHeight } from '../content/useContentViewHeight';
+  import ListingNav from './ListingNav.vue';
 
   export default defineComponent({
     name: 'LayoutFooter',
-    components: { Footer: Layout.Footer, GithubFilled },
+    components: { Footer: Layout.Footer, ListingNav },
     setup() {
       const { t } = useI18n();
       const { getShowFooter } = useRootSetting();
@@ -52,9 +55,6 @@
         getShowLayoutFooter,
         prefixCls,
         t,
-        DOC_URL,
-        GITHUB_URL,
-        SITE_URL,
         openWindow,
         footerRef,
       };

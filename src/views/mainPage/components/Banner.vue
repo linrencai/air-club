@@ -1,5 +1,5 @@
 <template>
-  <Carousel arrows>
+  <Carousel arrows autoplay>
     <div v-for="item in list" :key="item" class="cursor-pointer swiper-item">
       <img :src="item.src" :alt="item.name" class="object-fill object-center" />
     </div>
