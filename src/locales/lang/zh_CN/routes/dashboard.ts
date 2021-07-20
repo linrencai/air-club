@@ -4,4 +4,8 @@ export default {
   workbench: '工作台',
   analysis: '分析页',
   mainPage: '首页',
+  mainpage: {
+    newarrival: '新品上架',
+    price: '¥',
+  },
 };

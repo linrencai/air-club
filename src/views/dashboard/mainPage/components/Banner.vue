@@ -1,17 +1,7 @@
 <template>
-  <Carousel arrows autoplay>
-    <template #prevArrow>
-      <div class="custom-slick-arrow" style="left: 10px; z-index: 1">
-        <left-circle-outlined />
-      </div>
-    </template>
-    <template #nextArrow>
-      <div class="custom-slick-arrow" style="right: 10px">
-        <right-circle-outlined />
-      </div>
-    </template>
-    <div v-for="item in list" :key="item">
-      <img :src="item.src" :alt="item.name" />
+  <Carousel arrows>
+    <div v-for="item in list" :key="item" class="cursor-pointer swiper-item">
+      <img :src="item.src" :alt="item.name" class="object-fill object-center" />
     </div>
   </Carousel>
 </template>
@@ -22,7 +12,6 @@
     index: number;
   }
 
-  import { LeftCircleOutlined, RightCircleOutlined } from '@ant-design/icons-vue';
   import { Carousel } from 'ant-design-vue';
   import { defineComponent } from 'vue';
   import banner1 from '/@/assets/images/banner1.jpg';
@@ -59,7 +48,7 @@
   ];
   export default defineComponent({
     name: 'Banner',
-    components: { LeftCircleOutlined, RightCircleOutlined, Carousel },
+    components: { Carousel },
     setup() {
       return { list };
     },
@@ -67,36 +56,70 @@
 </script>
 <style lang="less" scoped>
   .ant-carousel {
+    .swiper-item {
+      height: 800px;
+
+      img {
+        // object-fit: fill;
+        // object-position: center;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
     :deep(.slick-slide) {
       text-align: center;
-      // height: 800px;
-      // line-height: 160px;
-      // max-height: 800px;
+      height: 800px;
       background: #fff;
       overflow: hidden;
     }
 
-    :deep(.slick-arrow.custom-slick-arrow) {
-      width: 25px;
-      height: 25px;
-      font-size: 25px;
-      color: #fff;
-      background-color: rgba(31, 45, 61, 0.11);
-      opacity: 0.3;
-    }
-
-    :deep(.custom-slick-arrow) {
-      &::before {
-        display: none;
-      }
-
-      &:hover {
-        opacity: 0.5;
-      }
-    }
-
     :deep(.slick-slide h3) {
       color: #fff;
+    }
+  }
+  @media (max-width: 768px) {
+    .ant-carousel {
+      .swiper-item {
+        height: 300px;
+      }
+
+      :deep(.slick-slide) {
+        height: 230px;
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 992px) {
+    .ant-carousel {
+      .swiper-item {
+        height: 400px;
+      }
+
+      :deep(.slick-slide) {
+        height: 400px;
+      }
+    }
+  }
+  @media (min-width: 992px) and (max-width: 1200px) {
+    .ant-carousel {
+      .swiper-item {
+        height: 600px;
+      }
+
+      :deep(.slick-slide) {
+        height: 600px;
+      }
+    }
+  }
+  @media (min-width: 1200px) {
+    .ant-carousel {
+      .swiper-item {
+        height: 600px;
+      }
+
+      :deep(.slick-slide) {
+        height: 600px;
+      }
     }
   }
 </style>
