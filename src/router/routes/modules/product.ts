@@ -10,7 +10,6 @@ const about: AppRouteModule = {
   redirect: '/product/index',
   meta: {
     hideChildrenInMenu: true,
-    // icon: 'simple-icons:about-dot-me',
     title: t('routes.dashboard.product'),
     orderNo: 20,
     ignoreAuth: true,
@@ -18,12 +17,23 @@ const about: AppRouteModule = {
   children: [
     {
       path: 'index',
-      name: 'ProductPage',
+      name: 'Product',
       component: () => import('/@/views/product/index.vue'),
       meta: {
         title: t('routes.dashboard.product'),
-        // icon: 'simple-icons:about-dot-me',
         ignoreAuth: true,
+      },
+    },
+    {
+      path: 'detail/:id',
+      name: 'ProductDetail',
+      component: () => import('/@/views/product/detail.vue'),
+      meta: {
+        title: t('routes.dashboard.product'),
+        ignoreAuth: true,
+        currentActiveMenu: '/product/index',
+        showMenu: false,
+        hideMenu: true,
       },
     },
   ],

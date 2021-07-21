@@ -15,7 +15,7 @@
     <div>
       <a-list :grid="grid" :data-source="list">
         <template #renderItem="{ item }">
-          <a-list-item>
+          <a-list-item @click="goDetail(item)">
             <a-card :hoverable="true" :class="`${prefixCls}__card`">
               <div :class="`${prefixCls}__card-img`">
                 <img :src="item.src" :alt="item.model" />
@@ -50,13 +50,14 @@
   import skonImg from '/@/assets/images/logo.png';
   import { useI18n } from '/@/hooks/web/useI18n';
   import { Loading } from '/@/components/Loading';
-
+  import { useGo } from '/@/hooks/web/usePage';
   interface listItem {
     src: string;
     price: number;
     desc: string;
     model: string;
     listing: string;
+    id: number;
   }
   const list: listItem[] = [
     {
@@ -65,6 +66,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 1,
     },
     {
       src: banner4,
@@ -72,6 +74,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 2,
     },
     {
       src: banner4,
@@ -79,6 +82,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 3,
     },
     {
       src: banner4,
@@ -86,6 +90,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 4,
     },
     {
       src: banner4,
@@ -93,6 +98,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 5,
     },
     {
       src: banner4,
@@ -100,6 +106,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 6,
     },
     {
       src: banner4,
@@ -107,6 +114,7 @@
       desc: 'Nike Air Jordan 1 Retro High OG ',
       listing: ' Basketball Shoes/Sneakers',
       model: 'Electro Orange',
+      id: 7,
     },
   ];
   export default defineComponent({
@@ -121,8 +129,8 @@
     },
     setup() {
       const { t } = useI18n();
+      const go = useGo();
       const listData: any = ref([]);
-      // const loadingMore = ref(false);
       const compState = reactive({
         absolute: false,
         loading: false,
@@ -141,12 +149,14 @@
         list.forEach((v) => {
           listData.value.push(v);
         });
-        // compState.loading = false;
         setTimeout(() => {
           compState.loading = false;
         }, 1000);
       }
-      // loadMoreData();
+      const goDetail = (v) => {
+        console.log(v);
+        go('/product/detail/' + v.id);
+      };
       return {
         prefixCls: 'list-card',
         list: reactive(listData),
@@ -157,6 +167,7 @@
         skonImg,
         onSearch,
         value,
+        goDetail,
       };
     },
   });

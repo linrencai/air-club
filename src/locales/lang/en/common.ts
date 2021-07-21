@@ -19,5 +19,5 @@ export default {
   dark: 'Dark',
 
   loadMore: 'showMore',
-  searchPlacehoder: 'please enter product name',
+  searchPlacehoder: 'Search for products...',
 };
