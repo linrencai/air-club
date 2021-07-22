@@ -9,20 +9,54 @@ const about: AppRouteModule = {
   component: LAYOUT,
   redirect: '/product/index',
   meta: {
-    hideChildrenInMenu: true,
+    // hideChildrenInMenu: true,
     title: t('routes.dashboard.product'),
     orderNo: 20,
     ignoreAuth: true,
   },
   children: [
     {
-      path: 'index',
-      name: 'Product',
+      path: 'ALL',
+      name: 'ALL',
       component: () => import('/@/views/product/index.vue'),
       meta: {
-        title: t('routes.dashboard.product'),
+        title: t('routes.product.ALL'),
         ignoreAuth: true,
       },
+      redirect: '',
+    },
+    {
+      path: 'AIRJORDAN',
+      name: 'AIRJORDAN',
+      component: () => import('/@/views/product/index.vue'),
+      meta: {
+        title: t('routes.product.AIRJORDAN'),
+        currentActiveMenu: '/product/AIRJORDAN',
+        ignoreAuth: true,
+      },
+      redirect: '',
+    },
+    {
+      path: 'NIKE',
+      name: 'NIKE',
+      component: () => import('/@/views/product/index.vue'),
+      meta: {
+        title: t('routes.product.NIKE'),
+        currentActiveMenu: '/product/NIKE',
+        ignoreAuth: true,
+      },
+      redirect: '',
+    },
+    {
+      path: 'YEEZY',
+      name: 'YEEZY',
+      component: () => import('/@/views/product/index.vue'),
+      meta: {
+        title: t('routes.product.YEEZY'),
+        currentActiveMenu: '/product/YEEZY',
+        ignoreAuth: true,
+      },
+      redirect: '',
     },
     {
       path: 'detail/:id',
@@ -32,7 +66,6 @@ const about: AppRouteModule = {
         title: t('routes.dashboard.product'),
         ignoreAuth: true,
         currentActiveMenu: '/product/index',
-        showMenu: false,
         hideMenu: true,
       },
     },
