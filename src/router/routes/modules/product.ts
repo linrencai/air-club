@@ -29,6 +29,9 @@ const about: AppRouteModule = {
       path: 'AIRJORDAN',
       name: 'AIRJORDAN',
       component: () => import('/@/views/product/index.vue'),
+      props: {
+        brand: 'AIRJORDAN',
+      },
       meta: {
         title: t('routes.product.AIRJORDAN'),
         currentActiveMenu: '/product/AIRJORDAN',
@@ -40,6 +43,9 @@ const about: AppRouteModule = {
       path: 'NIKE',
       name: 'NIKE',
       component: () => import('/@/views/product/index.vue'),
+      props: {
+        brand: 'NIKE',
+      },
       meta: {
         title: t('routes.product.NIKE'),
         currentActiveMenu: '/product/NIKE',
@@ -51,6 +57,9 @@ const about: AppRouteModule = {
       path: 'YEEZY',
       name: 'YEEZY',
       component: () => import('/@/views/product/index.vue'),
+      props: {
+        brand: 'YEEZY',
+      },
       meta: {
         title: t('routes.product.YEEZY'),
         currentActiveMenu: '/product/YEEZY',
